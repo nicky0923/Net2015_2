@@ -29,7 +29,7 @@
         }
         .auto-style2 {
             text-align: center;
-            width: 775px;
+            width: 759px;
         }
         .auto-style4 {
             text-align: center;
@@ -59,7 +59,9 @@
                         <asp:Label ID="LabelTitulo" runat="server" Font-Bold="True" Font-Size="XX-Large" ForeColor="White" Text="Sistema de Reservas de viajes"></asp:Label>
                     </td>
                     <td class="auto-style7">
-                        Username</td>
+                        <asp:LoginName ID="LoginName1" runat="server" ForeColor="White" />
+                        <asp:LoginStatus ID="LoginStatus1" runat="server" ForeColor="White" />
+                    </td>
                 </tr>
                 <tr>
                     <td>
