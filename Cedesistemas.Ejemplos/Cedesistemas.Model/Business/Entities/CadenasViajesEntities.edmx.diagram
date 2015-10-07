@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9140234f6c03410bb16c00889b767731" Name="Diagram1">
+        <EntityTypeShape EntityType="AgenciaVIajesDbModel.Agencias" Width="1.5" PointX="3" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="AgenciaVIajesDbModel.Cadenas" Width="1.5" PointX="0.75" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AgenciaVIajesDbModel.Ciudades" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AgenciaVIajesDbModel.Clientes" Width="1.5" PointX="3" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="AgenciaVIajesDbModel.Hoteles" Width="1.5" PointX="3" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AgenciaVIajesDbModel.Movimientos" Width="1.5" PointX="5.25" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AgenciaVIajesDbModel.Servicios" Width="1.5" PointX="5.25" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AgenciaVIajesDbModel.Vuelos" Width="1.5" PointX="3" PointY="9.5" IsExpanded="true" />
+        <AssociationConnector Association="AgenciaVIajesDbModel.FK_AgenciasCadenas" ManuallyRouted="false" />
+        <AssociationConnector Association="AgenciaVIajesDbModel.FK_MovimientosAgencias" ManuallyRouted="false" />
+        <AssociationConnector Association="AgenciaVIajesDbModel.FK_HotelesCadenas" ManuallyRouted="false" />
+        <AssociationConnector Association="AgenciaVIajesDbModel.FK_VuelosCadenas" ManuallyRouted="false" />
+        <AssociationConnector Association="AgenciaVIajesDbModel.FK_HotelesCiudades" ManuallyRouted="false" />
+        <AssociationConnector Association="AgenciaVIajesDbModel.FK_VuelosCiudadDestino" ManuallyRouted="false" />
+        <AssociationConnector Association="AgenciaVIajesDbModel.FK_VuelosCiudadOrigen" ManuallyRouted="false" />
+        <AssociationConnector Association="AgenciaVIajesDbModel.FK_MovimientosClientes" ManuallyRouted="false" />
+        <AssociationConnector Association="AgenciaVIajesDbModel.FK_ServiciosHoteles" ManuallyRouted="false" />
+        <AssociationConnector Association="AgenciaVIajesDbModel.FK_MovimientosServicios" ManuallyRouted="false" />
+        <AssociationConnector Association="AgenciaVIajesDbModel.FK_MovimientosVuelos" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="AgenciaVIajesDbModel.Departamentos" Width="1.5" PointX="2.375" PointY="0.5" />
+        <AssociationConnector Association="AgenciaVIajesDbModel.FK_Ciudades_Departamentos" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

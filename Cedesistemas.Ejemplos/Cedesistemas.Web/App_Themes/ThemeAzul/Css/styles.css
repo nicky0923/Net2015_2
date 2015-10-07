@@ -1,0 +1,33 @@
+﻿body {
+    margin: 10px;
+}
+
+.textboxClass {
+    color: blue;
+    border-radius: 0.5em;
+
+}
+
+.validationSummary {
+    color: red;
+
+}
+.requiredFieldValidator {
+    color: red;
+}
+.label {
+
+    font-size:  12px;
+    color: mediumblue;
+}
+.labelTitulo {
+
+    font-size: 36px;
+}
+
+#divMovimientos {
+    
+    width: 50%;
+    background-color: lavender;
+    margin-top: 10px;
+}

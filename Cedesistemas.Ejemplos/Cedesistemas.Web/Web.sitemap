@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode url="~/Principal.aspx" title="Principal"  description="Menu principal">
+    <siteMapNode url="" title="Maestros"  description="Menú maestros" >
+      <siteMapNode url="~/Modules/Private/Maestros/ClienteView.aspx"  title="CLientes"  description="Opción Clientes" />
+      <siteMapNode url=""  title="Servicios"  description="Opción Servicios">
+
+      </siteMapNode>
+    </siteMapNode>
+
+    <siteMapNode url="" title="Administración"  description="Menú Administración" >
+      <siteMapNode url="~/Modules/Private/Administracion/VuelosView.aspx"  title="Vuelos"  description="Opción Vuelos" />
+    </siteMapNode>
+    <siteMapNode url="" title="Procesos"  description="Menú Procesos" >
+      <siteMapNode url="~/Modules/Private/Procesos/Reservas.aspx"  title="Rerservas"  description="Opción Reservas" />
+    </siteMapNode>
+    <siteMapNode url="" title="Reportes"  description="Menú Reportes" />
+  </siteMapNode>
+</siteMap>

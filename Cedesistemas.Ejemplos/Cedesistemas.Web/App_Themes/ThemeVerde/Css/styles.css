@@ -1,0 +1,26 @@
+﻿body {
+    margin: 10px;
+}
+
+.textboxClass {
+    color: green;
+    border-radius: 0.5em;
+
+}
+
+.validationSummary {
+    color: red;
+
+}
+.requiredFieldValidator {
+    color: red;
+}
+.label {
+
+    font-size:  12px;
+    color: lawngreen;
+}
+.labelTitulo {
+
+    font-size: 26px;
+}

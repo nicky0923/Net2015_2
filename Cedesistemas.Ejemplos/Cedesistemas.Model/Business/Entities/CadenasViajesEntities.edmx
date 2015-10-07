@@ -1,0 +1,808 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="AgenciaVIajesDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Agencias">
+          <Key>
+            <PropertyRef Name="AgenciaId" />
+          </Key>
+          <Property Name="AgenciaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Codigo" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="Direccion" Type="varchar" MaxLength="50" />
+          <Property Name="Telefono" Type="varchar" MaxLength="50" />
+          <Property Name="CadenaId" Type="int" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Cadenas">
+          <Key>
+            <PropertyRef Name="CadenaId" />
+          </Key>
+          <Property Name="CadenaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Codigo" Type="varchar" MaxLength="3" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ciudades">
+          <Key>
+            <PropertyRef Name="CiudadId" />
+          </Key>
+          <Property Name="CiudadId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Codigo" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="DepartamentoId" Type="int" />
+        </EntityType>
+        <EntityType Name="Clientes">
+          <Key>
+            <PropertyRef Name="ClienteId" />
+          </Key>
+          <Property Name="ClienteId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Codigo" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Apellidos" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Direccion" Type="varchar" MaxLength="200" />
+          <Property Name="Telefono" Type="varchar" MaxLength="200" />
+          <Property Name="FechaNacimiento" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Departamentos">
+          <Key>
+            <PropertyRef Name="DepartamentoId" />
+          </Key>
+          <Property Name="DepartamentoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Hoteles">
+          <Key>
+            <PropertyRef Name="HotelId" />
+          </Key>
+          <Property Name="HotelId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Codigo" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Direccion" Type="varchar" MaxLength="50" />
+          <Property Name="Telefono" Type="varchar" MaxLength="50" />
+          <Property Name="NumeroPlazas" Type="int" />
+          <Property Name="CadenaId" Type="int" Nullable="false" />
+          <Property Name="CiudadId" Type="int" />
+        </EntityType>
+        <EntityType Name="Movimientos">
+          <Key>
+            <PropertyRef Name="MovimientoId" />
+          </Key>
+          <Property Name="MovimientoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClienteId" Type="int" />
+          <Property Name="ServicioId" Type="int" />
+          <Property Name="VueloId" Type="int" />
+          <Property Name="FechaLlegada" Type="datetime" />
+          <Property Name="FechaSalida" Type="datetime" />
+          <Property Name="ClaseVuelo" Type="varchar" MaxLength="10" />
+          <Property Name="CodigoReserva" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="AgenciaId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Servicios">
+          <Key>
+            <PropertyRef Name="ServicioId" />
+          </Key>
+          <Property Name="ServicioId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Codigo" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Precio" Type="numeric" Precision="11" Scale="2" />
+          <Property Name="Activo" Type="bit" />
+          <Property Name="HotelId" Type="int" Nullable="false" />
+          <Property Name="Descuento" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Vuelos">
+          <Key>
+            <PropertyRef Name="VueloId" />
+          </Key>
+          <Property Name="VueloId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Codigo" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="FechaVuelo" Type="datetime" Nullable="false" />
+          <Property Name="HoraVuelo" Type="time" Precision="7" Nullable="false" />
+          <Property Name="CiudadIdOrigen" Type="int" Nullable="false" />
+          <Property Name="CiudadIdDestino" Type="int" Nullable="false" />
+          <Property Name="NumeroPlazaEjecutiva" Type="int" />
+          <Property Name="NumeroPlazaTurista" Type="int" />
+          <Property Name="CadenaId" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_AgenciasCadenas">
+          <End Role="Cadenas" Type="Self.Cadenas" Multiplicity="0..1" />
+          <End Role="Agencias" Type="Self.Agencias" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cadenas">
+              <PropertyRef Name="CadenaId" />
+            </Principal>
+            <Dependent Role="Agencias">
+              <PropertyRef Name="CadenaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ciudades_Departamentos">
+          <End Role="Departamentos" Type="Self.Departamentos" Multiplicity="0..1" />
+          <End Role="Ciudades" Type="Self.Ciudades" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departamentos">
+              <PropertyRef Name="DepartamentoId" />
+            </Principal>
+            <Dependent Role="Ciudades">
+              <PropertyRef Name="DepartamentoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HotelesCadenas">
+          <End Role="Cadenas" Type="Self.Cadenas" Multiplicity="1" />
+          <End Role="Hoteles" Type="Self.Hoteles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cadenas">
+              <PropertyRef Name="CadenaId" />
+            </Principal>
+            <Dependent Role="Hoteles">
+              <PropertyRef Name="CadenaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HotelesCiudades">
+          <End Role="Ciudades" Type="Self.Ciudades" Multiplicity="0..1" />
+          <End Role="Hoteles" Type="Self.Hoteles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ciudades">
+              <PropertyRef Name="CiudadId" />
+            </Principal>
+            <Dependent Role="Hoteles">
+              <PropertyRef Name="CiudadId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MovimientosAgencias">
+          <End Role="Agencias" Type="Self.Agencias" Multiplicity="1" />
+          <End Role="Movimientos" Type="Self.Movimientos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Agencias">
+              <PropertyRef Name="AgenciaId" />
+            </Principal>
+            <Dependent Role="Movimientos">
+              <PropertyRef Name="AgenciaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MovimientosClientes">
+          <End Role="Clientes" Type="Self.Clientes" Multiplicity="0..1" />
+          <End Role="Movimientos" Type="Self.Movimientos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clientes">
+              <PropertyRef Name="ClienteId" />
+            </Principal>
+            <Dependent Role="Movimientos">
+              <PropertyRef Name="ClienteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MovimientosServicios">
+          <End Role="Servicios" Type="Self.Servicios" Multiplicity="0..1" />
+          <End Role="Movimientos" Type="Self.Movimientos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Servicios">
+              <PropertyRef Name="ServicioId" />
+            </Principal>
+            <Dependent Role="Movimientos">
+              <PropertyRef Name="ServicioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MovimientosVuelos">
+          <End Role="Vuelos" Type="Self.Vuelos" Multiplicity="0..1" />
+          <End Role="Movimientos" Type="Self.Movimientos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vuelos">
+              <PropertyRef Name="VueloId" />
+            </Principal>
+            <Dependent Role="Movimientos">
+              <PropertyRef Name="VueloId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ServiciosHoteles">
+          <End Role="Hoteles" Type="Self.Hoteles" Multiplicity="1" />
+          <End Role="Servicios" Type="Self.Servicios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hoteles">
+              <PropertyRef Name="HotelId" />
+            </Principal>
+            <Dependent Role="Servicios">
+              <PropertyRef Name="HotelId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VuelosCadenas">
+          <End Role="Cadenas" Type="Self.Cadenas" Multiplicity="1" />
+          <End Role="Vuelos" Type="Self.Vuelos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cadenas">
+              <PropertyRef Name="CadenaId" />
+            </Principal>
+            <Dependent Role="Vuelos">
+              <PropertyRef Name="CadenaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VuelosCiudadDestino">
+          <End Role="Ciudades" Type="Self.Ciudades" Multiplicity="1" />
+          <End Role="Vuelos" Type="Self.Vuelos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ciudades">
+              <PropertyRef Name="CiudadId" />
+            </Principal>
+            <Dependent Role="Vuelos">
+              <PropertyRef Name="CiudadIdDestino" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VuelosCiudadOrigen">
+          <End Role="Ciudades" Type="Self.Ciudades" Multiplicity="1" />
+          <End Role="Vuelos" Type="Self.Vuelos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ciudades">
+              <PropertyRef Name="CiudadId" />
+            </Principal>
+            <Dependent Role="Vuelos">
+              <PropertyRef Name="CiudadIdOrigen" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="sp_BuscarPersona" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="dato" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="AgenciaVIajesDbModelStoreContainer">
+          <EntitySet Name="Agencias" EntityType="Self.Agencias" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cadenas" EntityType="Self.Cadenas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ciudades" EntityType="Self.Ciudades" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Clientes" EntityType="Self.Clientes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Departamentos" EntityType="Self.Departamentos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Hoteles" EntityType="Self.Hoteles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Movimientos" EntityType="Self.Movimientos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Servicios" EntityType="Self.Servicios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vuelos" EntityType="Self.Vuelos" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_AgenciasCadenas" Association="Self.FK_AgenciasCadenas">
+            <End Role="Cadenas" EntitySet="Cadenas" />
+            <End Role="Agencias" EntitySet="Agencias" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ciudades_Departamentos" Association="Self.FK_Ciudades_Departamentos">
+            <End Role="Departamentos" EntitySet="Departamentos" />
+            <End Role="Ciudades" EntitySet="Ciudades" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HotelesCadenas" Association="Self.FK_HotelesCadenas">
+            <End Role="Cadenas" EntitySet="Cadenas" />
+            <End Role="Hoteles" EntitySet="Hoteles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HotelesCiudades" Association="Self.FK_HotelesCiudades">
+            <End Role="Ciudades" EntitySet="Ciudades" />
+            <End Role="Hoteles" EntitySet="Hoteles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MovimientosAgencias" Association="Self.FK_MovimientosAgencias">
+            <End Role="Agencias" EntitySet="Agencias" />
+            <End Role="Movimientos" EntitySet="Movimientos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MovimientosClientes" Association="Self.FK_MovimientosClientes">
+            <End Role="Clientes" EntitySet="Clientes" />
+            <End Role="Movimientos" EntitySet="Movimientos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MovimientosServicios" Association="Self.FK_MovimientosServicios">
+            <End Role="Servicios" EntitySet="Servicios" />
+            <End Role="Movimientos" EntitySet="Movimientos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MovimientosVuelos" Association="Self.FK_MovimientosVuelos">
+            <End Role="Vuelos" EntitySet="Vuelos" />
+            <End Role="Movimientos" EntitySet="Movimientos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ServiciosHoteles" Association="Self.FK_ServiciosHoteles">
+            <End Role="Hoteles" EntitySet="Hoteles" />
+            <End Role="Servicios" EntitySet="Servicios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VuelosCadenas" Association="Self.FK_VuelosCadenas">
+            <End Role="Cadenas" EntitySet="Cadenas" />
+            <End Role="Vuelos" EntitySet="Vuelos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VuelosCiudadDestino" Association="Self.FK_VuelosCiudadDestino">
+            <End Role="Ciudades" EntitySet="Ciudades" />
+            <End Role="Vuelos" EntitySet="Vuelos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VuelosCiudadOrigen" Association="Self.FK_VuelosCiudadOrigen">
+            <End Role="Ciudades" EntitySet="Ciudades" />
+            <End Role="Vuelos" EntitySet="Vuelos" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AgenciaVIajesDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Agencias">
+          <Key>
+            <PropertyRef Name="AgenciaId" />
+          </Key>
+          <Property Name="AgenciaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Codigo" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Direccion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CadenaId" Type="Int32" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Cadenas" Relationship="Self.FK_AgenciasCadenas" FromRole="Agencias" ToRole="Cadenas" />
+          <NavigationProperty Name="Movimientos" Relationship="Self.FK_MovimientosAgencias" FromRole="Agencias" ToRole="Movimientos" />
+        </EntityType>
+        <EntityType Name="Cadenas">
+          <Key>
+            <PropertyRef Name="CadenaId" />
+          </Key>
+          <Property Name="CadenaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Codigo" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Agencias" Relationship="Self.FK_AgenciasCadenas" FromRole="Cadenas" ToRole="Agencias" />
+          <NavigationProperty Name="Hoteles" Relationship="Self.FK_HotelesCadenas" FromRole="Cadenas" ToRole="Hoteles" />
+          <NavigationProperty Name="Vuelos" Relationship="Self.FK_VuelosCadenas" FromRole="Cadenas" ToRole="Vuelos" />
+        </EntityType>
+        <EntityType Name="Ciudades">
+          <Key>
+            <PropertyRef Name="CiudadId" />
+          </Key>
+          <Property Name="CiudadId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Codigo" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Hoteles" Relationship="Self.FK_HotelesCiudades" FromRole="Ciudades" ToRole="Hoteles" />
+          <NavigationProperty Name="Vuelos" Relationship="Self.FK_VuelosCiudadDestino" FromRole="Ciudades" ToRole="Vuelos" />
+          <NavigationProperty Name="Vuelos1" Relationship="Self.FK_VuelosCiudadOrigen" FromRole="Ciudades" ToRole="Vuelos" />
+          <Property Name="DepartamentoId" Type="Int32" />
+          <NavigationProperty Name="Departamentos" Relationship="AgenciaVIajesDbModel.FK_Ciudades_Departamentos" FromRole="Ciudades" ToRole="Departamentos" />
+        </EntityType>
+        <EntityType Name="Clientes">
+          <Key>
+            <PropertyRef Name="ClienteId" />
+          </Key>
+          <Property Name="ClienteId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Codigo" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Apellidos" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Direccion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Telefono" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="FechaNacimiento" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Movimientos" Relationship="Self.FK_MovimientosClientes" FromRole="Clientes" ToRole="Movimientos" />
+        </EntityType>
+        <EntityType Name="Hoteles">
+          <Key>
+            <PropertyRef Name="HotelId" />
+          </Key>
+          <Property Name="HotelId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Codigo" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Direccion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NumeroPlazas" Type="Int32" />
+          <Property Name="CadenaId" Type="Int32" Nullable="false" />
+          <Property Name="CiudadId" Type="Int32" />
+          <NavigationProperty Name="Cadenas" Relationship="Self.FK_HotelesCadenas" FromRole="Hoteles" ToRole="Cadenas" />
+          <NavigationProperty Name="Ciudades" Relationship="Self.FK_HotelesCiudades" FromRole="Hoteles" ToRole="Ciudades" />
+          <NavigationProperty Name="Servicios" Relationship="Self.FK_ServiciosHoteles" FromRole="Hoteles" ToRole="Servicios" />
+        </EntityType>
+        <EntityType Name="Movimientos">
+          <Key>
+            <PropertyRef Name="MovimientoId" />
+          </Key>
+          <Property Name="MovimientoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClienteId" Type="Int32" />
+          <Property Name="ServicioId" Type="Int32" />
+          <Property Name="VueloId" Type="Int32" />
+          <Property Name="FechaLlegada" Type="DateTime" Precision="3" />
+          <Property Name="FechaSalida" Type="DateTime" Precision="3" />
+          <Property Name="ClaseVuelo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="CodigoReserva" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AgenciaId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Agencias" Relationship="Self.FK_MovimientosAgencias" FromRole="Movimientos" ToRole="Agencias" />
+          <NavigationProperty Name="Clientes" Relationship="Self.FK_MovimientosClientes" FromRole="Movimientos" ToRole="Clientes" />
+          <NavigationProperty Name="Servicios" Relationship="Self.FK_MovimientosServicios" FromRole="Movimientos" ToRole="Servicios" />
+          <NavigationProperty Name="Vuelos" Relationship="Self.FK_MovimientosVuelos" FromRole="Movimientos" ToRole="Vuelos" />
+        </EntityType>
+        <EntityType Name="Servicios">
+          <Key>
+            <PropertyRef Name="ServicioId" />
+          </Key>
+          <Property Name="ServicioId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Codigo" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Precio" Type="Decimal" Precision="11" Scale="2" />
+          <Property Name="Activo" Type="Boolean" />
+          <Property Name="HotelId" Type="Int32" Nullable="false" />
+          <Property Name="Descuento" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Hoteles" Relationship="Self.FK_ServiciosHoteles" FromRole="Servicios" ToRole="Hoteles" />
+          <NavigationProperty Name="Movimientos" Relationship="Self.FK_MovimientosServicios" FromRole="Servicios" ToRole="Movimientos" />
+        </EntityType>
+        <EntityType Name="Vuelos">
+          <Key>
+            <PropertyRef Name="VueloId" />
+          </Key>
+          <Property Name="VueloId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Codigo" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FechaVuelo" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="HoraVuelo" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="CiudadIdOrigen" Type="Int32" Nullable="false" />
+          <Property Name="CiudadIdDestino" Type="Int32" Nullable="false" />
+          <Property Name="NumeroPlazaEjecutiva" Type="Int32" />
+          <Property Name="NumeroPlazaTurista" Type="Int32" />
+          <Property Name="CadenaId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Cadenas" Relationship="Self.FK_VuelosCadenas" FromRole="Vuelos" ToRole="Cadenas" />
+          <NavigationProperty Name="Ciudades" Relationship="Self.FK_VuelosCiudadDestino" FromRole="Vuelos" ToRole="Ciudades" />
+          <NavigationProperty Name="Ciudades1" Relationship="Self.FK_VuelosCiudadOrigen" FromRole="Vuelos" ToRole="Ciudades" />
+          <NavigationProperty Name="Movimientos" Relationship="Self.FK_MovimientosVuelos" FromRole="Vuelos" ToRole="Movimientos" />
+        </EntityType>
+        <Association Name="FK_AgenciasCadenas">
+          <End Role="Cadenas" Type="Self.Cadenas" Multiplicity="0..1" />
+          <End Role="Agencias" Type="Self.Agencias" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cadenas">
+              <PropertyRef Name="CadenaId" />
+            </Principal>
+            <Dependent Role="Agencias">
+              <PropertyRef Name="CadenaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MovimientosAgencias">
+          <End Role="Agencias" Type="Self.Agencias" Multiplicity="1" />
+          <End Role="Movimientos" Type="Self.Movimientos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Agencias">
+              <PropertyRef Name="AgenciaId" />
+            </Principal>
+            <Dependent Role="Movimientos">
+              <PropertyRef Name="AgenciaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HotelesCadenas">
+          <End Role="Cadenas" Type="Self.Cadenas" Multiplicity="1" />
+          <End Role="Hoteles" Type="Self.Hoteles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cadenas">
+              <PropertyRef Name="CadenaId" />
+            </Principal>
+            <Dependent Role="Hoteles">
+              <PropertyRef Name="CadenaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VuelosCadenas">
+          <End Role="Cadenas" Type="Self.Cadenas" Multiplicity="1" />
+          <End Role="Vuelos" Type="Self.Vuelos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cadenas">
+              <PropertyRef Name="CadenaId" />
+            </Principal>
+            <Dependent Role="Vuelos">
+              <PropertyRef Name="CadenaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HotelesCiudades">
+          <End Role="Ciudades" Type="Self.Ciudades" Multiplicity="0..1" />
+          <End Role="Hoteles" Type="Self.Hoteles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ciudades">
+              <PropertyRef Name="CiudadId" />
+            </Principal>
+            <Dependent Role="Hoteles">
+              <PropertyRef Name="CiudadId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VuelosCiudadDestino">
+          <End Role="Ciudades" Type="Self.Ciudades" Multiplicity="1" />
+          <End Role="Vuelos" Type="Self.Vuelos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ciudades">
+              <PropertyRef Name="CiudadId" />
+            </Principal>
+            <Dependent Role="Vuelos">
+              <PropertyRef Name="CiudadIdDestino" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VuelosCiudadOrigen">
+          <End Role="Ciudades" Type="Self.Ciudades" Multiplicity="1" />
+          <End Role="Vuelos" Type="Self.Vuelos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ciudades">
+              <PropertyRef Name="CiudadId" />
+            </Principal>
+            <Dependent Role="Vuelos">
+              <PropertyRef Name="CiudadIdOrigen" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MovimientosClientes">
+          <End Role="Clientes" Type="Self.Clientes" Multiplicity="0..1" />
+          <End Role="Movimientos" Type="Self.Movimientos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clientes">
+              <PropertyRef Name="ClienteId" />
+            </Principal>
+            <Dependent Role="Movimientos">
+              <PropertyRef Name="ClienteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ServiciosHoteles">
+          <End Role="Hoteles" Type="Self.Hoteles" Multiplicity="1" />
+          <End Role="Servicios" Type="Self.Servicios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hoteles">
+              <PropertyRef Name="HotelId" />
+            </Principal>
+            <Dependent Role="Servicios">
+              <PropertyRef Name="HotelId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MovimientosServicios">
+          <End Role="Servicios" Type="Self.Servicios" Multiplicity="0..1" />
+          <End Role="Movimientos" Type="Self.Movimientos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Servicios">
+              <PropertyRef Name="ServicioId" />
+            </Principal>
+            <Dependent Role="Movimientos">
+              <PropertyRef Name="ServicioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MovimientosVuelos">
+          <End Role="Vuelos" Type="Self.Vuelos" Multiplicity="0..1" />
+          <End Role="Movimientos" Type="Self.Movimientos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vuelos">
+              <PropertyRef Name="VueloId" />
+            </Principal>
+            <Dependent Role="Movimientos">
+              <PropertyRef Name="VueloId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AgenciaVIajesDbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Agencias" EntityType="Self.Agencias" />
+          <EntitySet Name="Cadenas" EntityType="Self.Cadenas" />
+          <EntitySet Name="Ciudades" EntityType="Self.Ciudades" />
+          <EntitySet Name="Clientes" EntityType="Self.Clientes" />
+          <EntitySet Name="Hoteles" EntityType="Self.Hoteles" />
+          <EntitySet Name="Movimientos" EntityType="Self.Movimientos" />
+          <EntitySet Name="Servicios" EntityType="Self.Servicios" />
+          <EntitySet Name="Vuelos" EntityType="Self.Vuelos" />
+          <AssociationSet Name="FK_AgenciasCadenas" Association="Self.FK_AgenciasCadenas">
+            <End Role="Cadenas" EntitySet="Cadenas" />
+            <End Role="Agencias" EntitySet="Agencias" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MovimientosAgencias" Association="Self.FK_MovimientosAgencias">
+            <End Role="Agencias" EntitySet="Agencias" />
+            <End Role="Movimientos" EntitySet="Movimientos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HotelesCadenas" Association="Self.FK_HotelesCadenas">
+            <End Role="Cadenas" EntitySet="Cadenas" />
+            <End Role="Hoteles" EntitySet="Hoteles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VuelosCadenas" Association="Self.FK_VuelosCadenas">
+            <End Role="Cadenas" EntitySet="Cadenas" />
+            <End Role="Vuelos" EntitySet="Vuelos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HotelesCiudades" Association="Self.FK_HotelesCiudades">
+            <End Role="Ciudades" EntitySet="Ciudades" />
+            <End Role="Hoteles" EntitySet="Hoteles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VuelosCiudadDestino" Association="Self.FK_VuelosCiudadDestino">
+            <End Role="Ciudades" EntitySet="Ciudades" />
+            <End Role="Vuelos" EntitySet="Vuelos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VuelosCiudadOrigen" Association="Self.FK_VuelosCiudadOrigen">
+            <End Role="Ciudades" EntitySet="Ciudades" />
+            <End Role="Vuelos" EntitySet="Vuelos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MovimientosClientes" Association="Self.FK_MovimientosClientes">
+            <End Role="Clientes" EntitySet="Clientes" />
+            <End Role="Movimientos" EntitySet="Movimientos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ServiciosHoteles" Association="Self.FK_ServiciosHoteles">
+            <End Role="Hoteles" EntitySet="Hoteles" />
+            <End Role="Servicios" EntitySet="Servicios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MovimientosServicios" Association="Self.FK_MovimientosServicios">
+            <End Role="Servicios" EntitySet="Servicios" />
+            <End Role="Movimientos" EntitySet="Movimientos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MovimientosVuelos" Association="Self.FK_MovimientosVuelos">
+            <End Role="Vuelos" EntitySet="Vuelos" />
+            <End Role="Movimientos" EntitySet="Movimientos" />
+          </AssociationSet>
+          <EntitySet Name="Departamentos" EntityType="AgenciaVIajesDbModel.Departamentos" />
+          <AssociationSet Name="FK_Ciudades_Departamentos" Association="AgenciaVIajesDbModel.FK_Ciudades_Departamentos">
+            <End Role="Departamentos" EntitySet="Departamentos" />
+            <End Role="Ciudades" EntitySet="Ciudades" />
+          </AssociationSet>
+          <FunctionImport Name="sp_BuscarPersona" ReturnType="Collection(AgenciaVIajesDbModel.sp_BuscarPersona_Result)">
+            <Parameter Name="dato" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <EntityType Name="Departamentos">
+          <Key>
+            <PropertyRef Name="DepartamentoId" />
+          </Key>
+          <Property Name="DepartamentoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Ciudades" Relationship="AgenciaVIajesDbModel.FK_Ciudades_Departamentos" FromRole="Departamentos" ToRole="Ciudades" />
+        </EntityType>
+        <Association Name="FK_Ciudades_Departamentos">
+          <End Type="AgenciaVIajesDbModel.Departamentos" Role="Departamentos" Multiplicity="0..1" />
+          <End Type="AgenciaVIajesDbModel.Ciudades" Role="Ciudades" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departamentos">
+              <PropertyRef Name="DepartamentoId" />
+            </Principal>
+            <Dependent Role="Ciudades">
+              <PropertyRef Name="DepartamentoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="sp_BuscarPersona_Result">
+          <Property Type="Int32" Name="ClienteId" Nullable="false" />
+          <Property Type="String" Name="Codigo" Nullable="false" MaxLength="3" />
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="Apellidos" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="Direccion" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Telefono" Nullable="true" MaxLength="200" />
+          <Property Type="DateTime" Name="FechaNacimiento" Nullable="true" Precision="23" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AgenciaVIajesDbModelStoreContainer" CdmEntityContainer="AgenciaVIajesDbEntities">
+          <EntitySetMapping Name="Agencias">
+            <EntityTypeMapping TypeName="AgenciaVIajesDbModel.Agencias">
+              <MappingFragment StoreEntitySet="Agencias">
+                <ScalarProperty Name="AgenciaId" ColumnName="AgenciaId" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="CadenaId" ColumnName="CadenaId" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cadenas">
+            <EntityTypeMapping TypeName="AgenciaVIajesDbModel.Cadenas">
+              <MappingFragment StoreEntitySet="Cadenas">
+                <ScalarProperty Name="CadenaId" ColumnName="CadenaId" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ciudades">
+            <EntityTypeMapping TypeName="AgenciaVIajesDbModel.Ciudades">
+              <MappingFragment StoreEntitySet="Ciudades">
+                <ScalarProperty Name="DepartamentoId" ColumnName="DepartamentoId" />
+                <ScalarProperty Name="CiudadId" ColumnName="CiudadId" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clientes">
+            <EntityTypeMapping TypeName="AgenciaVIajesDbModel.Clientes">
+              <MappingFragment StoreEntitySet="Clientes">
+                <ScalarProperty Name="ClienteId" ColumnName="ClienteId" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Hoteles">
+            <EntityTypeMapping TypeName="AgenciaVIajesDbModel.Hoteles">
+              <MappingFragment StoreEntitySet="Hoteles">
+                <ScalarProperty Name="HotelId" ColumnName="HotelId" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="NumeroPlazas" ColumnName="NumeroPlazas" />
+                <ScalarProperty Name="CadenaId" ColumnName="CadenaId" />
+                <ScalarProperty Name="CiudadId" ColumnName="CiudadId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Movimientos">
+            <EntityTypeMapping TypeName="AgenciaVIajesDbModel.Movimientos">
+              <MappingFragment StoreEntitySet="Movimientos">
+                <ScalarProperty Name="MovimientoId" ColumnName="MovimientoId" />
+                <ScalarProperty Name="ClienteId" ColumnName="ClienteId" />
+                <ScalarProperty Name="ServicioId" ColumnName="ServicioId" />
+                <ScalarProperty Name="VueloId" ColumnName="VueloId" />
+                <ScalarProperty Name="FechaLlegada" ColumnName="FechaLlegada" />
+                <ScalarProperty Name="FechaSalida" ColumnName="FechaSalida" />
+                <ScalarProperty Name="ClaseVuelo" ColumnName="ClaseVuelo" />
+                <ScalarProperty Name="CodigoReserva" ColumnName="CodigoReserva" />
+                <ScalarProperty Name="AgenciaId" ColumnName="AgenciaId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Servicios">
+            <EntityTypeMapping TypeName="AgenciaVIajesDbModel.Servicios">
+              <MappingFragment StoreEntitySet="Servicios">
+                <ScalarProperty Name="ServicioId" ColumnName="ServicioId" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="HotelId" ColumnName="HotelId" />
+                <ScalarProperty Name="Descuento" ColumnName="Descuento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vuelos">
+            <EntityTypeMapping TypeName="AgenciaVIajesDbModel.Vuelos">
+              <MappingFragment StoreEntitySet="Vuelos">
+                <ScalarProperty Name="VueloId" ColumnName="VueloId" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="FechaVuelo" ColumnName="FechaVuelo" />
+                <ScalarProperty Name="HoraVuelo" ColumnName="HoraVuelo" />
+                <ScalarProperty Name="CiudadIdOrigen" ColumnName="CiudadIdOrigen" />
+                <ScalarProperty Name="CiudadIdDestino" ColumnName="CiudadIdDestino" />
+                <ScalarProperty Name="NumeroPlazaEjecutiva" ColumnName="NumeroPlazaEjecutiva" />
+                <ScalarProperty Name="NumeroPlazaTurista" ColumnName="NumeroPlazaTurista" />
+                <ScalarProperty Name="CadenaId" ColumnName="CadenaId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Departamentos">
+            <EntityTypeMapping TypeName="AgenciaVIajesDbModel.Departamentos">
+              <MappingFragment StoreEntitySet="Departamentos">
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="DepartamentoId" ColumnName="DepartamentoId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_BuscarPersona" FunctionName="AgenciaVIajesDbModel.Store.sp_BuscarPersona">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AgenciaVIajesDbModel.sp_BuscarPersona_Result">
+                <ScalarProperty Name="ClienteId" ColumnName="ClienteId" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
