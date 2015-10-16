@@ -13,5 +13,12 @@ namespace Cedesistemas.Web
         {
 
         }
+
+  
+
+        protected void Login1_LoggedIn(object sender, EventArgs e)
+        {
+            Response.Redirect(@"~\principal.aspx");
+        }
     }
 }

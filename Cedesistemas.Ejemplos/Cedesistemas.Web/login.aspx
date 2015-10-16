@@ -11,7 +11,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     
     
-    <asp:Login ID="Login1" runat="server" DestinationPageUrl="~/Principal.aspx">
+    <asp:Login ID="Login1" runat="server" DestinationPageUrl="~/Principal.aspx" OnLoggedIn="Login1_LoggedIn">
 </asp:Login>
     
     jkjkj

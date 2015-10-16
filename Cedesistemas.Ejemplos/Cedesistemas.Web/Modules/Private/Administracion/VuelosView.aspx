@@ -109,8 +109,16 @@
                         <br />
                         <asp:ObjectDataSource ID="ObjectDataSourceCiudades" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="SelectAllCiudades" TypeName="Cedesistemas.Model.Service.AgenciasViajesApi"></asp:ObjectDataSource>
                         <asp:ValidationSummary ID="ValidationSummary1" runat="server" ValidationGroup="update" />
+                        <asp:LoginView ID="LoginView1" runat="server">
+                            <RoleGroups>
+                                <asp:RoleGroup Roles="Administrador">
+                                    <ContentTemplate>
+                                        <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Update" ValidationGroup="update" />
+                                    </ContentTemplate>
+                                </asp:RoleGroup>
+                            </RoleGroups>
+                        </asp:LoginView>
                         <br />
-                        <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Update" ValidationGroup="update" />
                         &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
                     </EditItemTemplate>
                     <InsertItemTemplate>
