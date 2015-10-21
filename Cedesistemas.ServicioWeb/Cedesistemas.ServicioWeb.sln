@@ -3,8 +3,34 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{44365EF1-F012-4436-A625-6E621CC2B6EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EjemploServicios", "EjemploServicios\EjemploServicios.csproj", "{C0EFB237-2430-459D-ABEE-C818DFA2C7BF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Consola", "Consola", "{D1C2FD65-4F96-4E90-B101-4D47AF9A17EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsumirServicioWeb", "ConsumirServicioWeb\ConsumirServicioWeb.csproj", "{F6D9F7F5-D47F-40FD-85B0-16274446D64D}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C0EFB237-2430-459D-ABEE-C818DFA2C7BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0EFB237-2430-459D-ABEE-C818DFA2C7BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0EFB237-2430-459D-ABEE-C818DFA2C7BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0EFB237-2430-459D-ABEE-C818DFA2C7BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6D9F7F5-D47F-40FD-85B0-16274446D64D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6D9F7F5-D47F-40FD-85B0-16274446D64D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6D9F7F5-D47F-40FD-85B0-16274446D64D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6D9F7F5-D47F-40FD-85B0-16274446D64D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C0EFB237-2430-459D-ABEE-C818DFA2C7BF} = {44365EF1-F012-4436-A625-6E621CC2B6EA}
+		{F6D9F7F5-D47F-40FD-85B0-16274446D64D} = {D1C2FD65-4F96-4E90-B101-4D47AF9A17EF}
 	EndGlobalSection
 EndGlobal

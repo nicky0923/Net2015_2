@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CalcularMayor">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="valor1" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="valor2" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CalcularMayorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CalcularMayorResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelectAllPersonas">
+        <s:complexType />
+      </s:element>
+      <s:element name="SelectAllPersonasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SelectAllPersonasResult" type="tns:ArrayOfPersonaDto" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfPersonaDto">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PersonaDto" nillable="true" type="tns:PersonaDto" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PersonaDto">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Apellidos" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaNacimiento" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SelectAllPersonasAdd">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="personaDto" type="tns:PersonaDto" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelectAllPersonasAddResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SelectAllPersonasAddResult" type="tns:ArrayOfPersonaDto" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="CalcularMayorSoapIn">
+    <wsdl:part name="parameters" element="tns:CalcularMayor" />
+  </wsdl:message>
+  <wsdl:message name="CalcularMayorSoapOut">
+    <wsdl:part name="parameters" element="tns:CalcularMayorResponse" />
+  </wsdl:message>
+  <wsdl:message name="SelectAllPersonasSoapIn">
+    <wsdl:part name="parameters" element="tns:SelectAllPersonas" />
+  </wsdl:message>
+  <wsdl:message name="SelectAllPersonasSoapOut">
+    <wsdl:part name="parameters" element="tns:SelectAllPersonasResponse" />
+  </wsdl:message>
+  <wsdl:message name="SelectAllPersonasAddSoapIn">
+    <wsdl:part name="parameters" element="tns:SelectAllPersonasAdd" />
+  </wsdl:message>
+  <wsdl:message name="SelectAllPersonasAddSoapOut">
+    <wsdl:part name="parameters" element="tns:SelectAllPersonasAddResponse" />
+  </wsdl:message>
+  <wsdl:portType name="EjemploAsmxSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CalcularMayor">
+      <wsdl:input message="tns:CalcularMayorSoapIn" />
+      <wsdl:output message="tns:CalcularMayorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectAllPersonas">
+      <wsdl:input message="tns:SelectAllPersonasSoapIn" />
+      <wsdl:output message="tns:SelectAllPersonasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectAllPersonas">
+      <wsdl:input name="SelectAllPersonasAdd" message="tns:SelectAllPersonasAddSoapIn" />
+      <wsdl:output name="SelectAllPersonasAdd" message="tns:SelectAllPersonasAddSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="EjemploAsmxSoap" type="tns:EjemploAsmxSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CalcularMayor">
+      <soap:operation soapAction="http://tempuri.org/CalcularMayor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectAllPersonas">
+      <soap:operation soapAction="http://tempuri.org/SelectAllPersonas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectAllPersonas">
+      <soap:operation soapAction="http://tempuri.org/SelectAllPersonasAdd" style="document" />
+      <wsdl:input name="SelectAllPersonasAdd">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="SelectAllPersonasAdd">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="EjemploAsmxSoap12" type="tns:EjemploAsmxSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CalcularMayor">
+      <soap12:operation soapAction="http://tempuri.org/CalcularMayor" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectAllPersonas">
+      <soap12:operation soapAction="http://tempuri.org/SelectAllPersonas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectAllPersonas">
+      <soap12:operation soapAction="http://tempuri.org/SelectAllPersonasAdd" style="document" />
+      <wsdl:input name="SelectAllPersonasAdd">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="SelectAllPersonasAdd">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="EjemploAsmx">
+    <wsdl:port name="EjemploAsmxSoap" binding="tns:EjemploAsmxSoap">
+      <soap:address location="http://172.18.1.107:70/CedeServicioWeb/Asmx/Servicios/EjemploAsmx.asmx" />
+    </wsdl:port>
+    <wsdl:port name="EjemploAsmxSoap12" binding="tns:EjemploAsmxSoap12">
+      <soap12:address location="http://172.18.1.107:70/CedeServicioWeb/Asmx/Servicios/EjemploAsmx.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
