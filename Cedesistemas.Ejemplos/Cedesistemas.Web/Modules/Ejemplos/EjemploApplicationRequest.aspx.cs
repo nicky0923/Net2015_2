@@ -19,6 +19,8 @@ namespace Cedesistemas.Web.Modules
         {
             CustomApplicationManager.MessageApplication = TextBoxMensaje.Text;
             Response.Redirect("EjemploApplicationResponse.aspx");
+
+            
         }
     }
 }

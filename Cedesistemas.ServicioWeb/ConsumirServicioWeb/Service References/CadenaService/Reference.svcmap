@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="a335b8da-007b-41c2-a9e1-ab94fb8cfeba" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:53297/CadenasViajesService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="CadenasViajesService.disco" MetadataType="Disco" ID="3024529e-7df3-4fd5-afd7-87902be8bb9d" SourceId="1" SourceUrl="http://localhost:53297/CadenasViajesService.svc?disco" />
+    <MetadataFile FileName="CadenasViajesService.xsd" MetadataType="Schema" ID="7e3e0576-bfaf-4658-9fe6-220f8afd50b7" SourceId="1" SourceUrl="http://localhost:53297/CadenasViajesService.svc?xsd=xsd0" />
+    <MetadataFile FileName="CadenasViajesService1.xsd" MetadataType="Schema" ID="392f7bc4-f8cd-4a4a-bd32-9de987dadd2c" SourceId="1" SourceUrl="http://localhost:53297/CadenasViajesService.svc?xsd=xsd2" />
+    <MetadataFile FileName="CadenasViajesService2.xsd" MetadataType="Schema" ID="c4b4be37-dfef-4d53-8aa2-6c1bd7ad562f" SourceId="1" SourceUrl="http://localhost:53297/CadenasViajesService.svc?xsd=xsd1" />
+    <MetadataFile FileName="AgenciasViajesApi.wsdl" MetadataType="Wsdl" ID="99113df1-c1a8-4665-852c-26a92ac41b1b" SourceId="1" SourceUrl="http://localhost:53297/CadenasViajesService.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

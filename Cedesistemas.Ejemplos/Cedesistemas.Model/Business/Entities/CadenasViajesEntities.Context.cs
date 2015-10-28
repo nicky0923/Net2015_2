@@ -16,11 +16,12 @@ namespace Cedesistemas.Model.Business.Entities
     using System.Data.Objects.DataClasses;
     using System.Linq;
     
-    public partial class AgenciaVIajesDbEntities : DbContext
+    internal partial class AgenciaVIajesDbEntities : DbContext
     {
         public AgenciaVIajesDbEntities()
             : base("name=AgenciaVIajesDbEntities")
         {
+    	Configuration.ProxyCreationEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

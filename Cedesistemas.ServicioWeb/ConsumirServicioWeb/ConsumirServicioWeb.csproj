@@ -55,7 +55,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Service References\CadenaService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\EjemploAsmx\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\EjemploWcf\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -96,6 +106,19 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <None Include="Service References\CadenaService\AgenciasViajesApi.wsdl" />
+    <None Include="Service References\CadenaService\CadenasViajesService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CadenaService\CadenasViajesService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CadenaService\CadenasViajesService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CadenaService\ConsumirServicioWeb.CadenaService.Clientes.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\EjemploAsmx\ConsumirServicioWeb.EjemploAsmx.HelloWorldResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -117,7 +140,9 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Service References\CadenaService\" />
     <WCFMetadataStorage Include="Service References\EjemploAsmx\" />
+    <WCFMetadataStorage Include="Service References\EjemploWcf\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\EjemploAsmx\EjemploAsmx.disco" />
@@ -130,6 +155,49 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\EjemploAsmx\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\EjemploWcf\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\EjemploWcf\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\EjemploWcf\ConsumirServicioWeb.EjemploWcf.PersonaDto.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\EjemploWcf\EjemploWcf1.wsdl" />
+    <None Include="Service References\EjemploWcf\EjemploWcf2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EjemploWcf\EjemploWcf21.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EjemploWcf\EjemploWcf22.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EjemploWcf\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\EjemploWcf\EjemploWcf1.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CadenaService\CadenasViajesService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CadenaService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CadenaService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CadenaService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

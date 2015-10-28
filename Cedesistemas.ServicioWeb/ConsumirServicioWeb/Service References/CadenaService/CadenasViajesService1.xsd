@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Cedesistemas.Model.Business.Entities" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Cedesistemas.Model.Business.Entities" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:53297/CadenasViajesService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ArrayOfClientes">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Clientes" nillable="true" type="tns:Clientes" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfClientes" nillable="true" type="tns:ArrayOfClientes" />
+  <xs:complexType name="Clientes">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Apellidos" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClienteId" type="xs:int" />
+      <xs:element minOccurs="0" name="Codigo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Direccion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FechaNacimiento" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Movimientos" nillable="true" type="tns:ArrayOfMovimientos" />
+      <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Telefono" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Clientes" nillable="true" type="tns:Clientes" />
+  <xs:complexType name="ArrayOfMovimientos">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Movimientos" nillable="true" type="tns:Movimientos" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMovimientos" nillable="true" type="tns:ArrayOfMovimientos" />
+  <xs:complexType name="Movimientos">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AgenciaId" type="xs:int" />
+      <xs:element minOccurs="0" name="Agencias" nillable="true" type="tns:Agencias" />
+      <xs:element minOccurs="0" name="ClaseVuelo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClienteId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Clientes" nillable="true" type="tns:Clientes" />
+      <xs:element minOccurs="0" name="CodigoReserva" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FechaLlegada" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FechaSalida" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="MovimientoId" type="xs:int" />
+      <xs:element minOccurs="0" name="NombreAgencia" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ServicioId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Servicios" nillable="true" type="tns:Servicios" />
+      <xs:element minOccurs="0" name="VueloId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Vuelos" nillable="true" type="tns:Vuelos" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Movimientos" nillable="true" type="tns:Movimientos" />
+  <xs:complexType name="Agencias">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AgenciaId" type="xs:int" />
+      <xs:element minOccurs="0" name="CadenaId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Cadenas" nillable="true" type="tns:Cadenas" />
+      <xs:element minOccurs="0" name="Codigo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Direccion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Movimientos" nillable="true" type="tns:ArrayOfMovimientos" />
+      <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Telefono" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Agencias" nillable="true" type="tns:Agencias" />
+  <xs:complexType name="Cadenas">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Agencias" nillable="true" type="tns:ArrayOfAgencias" />
+      <xs:element minOccurs="0" name="CadenaId" type="xs:int" />
+      <xs:element minOccurs="0" name="Codigo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Hoteles" nillable="true" type="tns:ArrayOfHoteles" />
+      <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Vuelos" nillable="true" type="tns:ArrayOfVuelos" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Cadenas" nillable="true" type="tns:Cadenas" />
+  <xs:complexType name="ArrayOfAgencias">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Agencias" nillable="true" type="tns:Agencias" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAgencias" nillable="true" type="tns:ArrayOfAgencias" />
+  <xs:complexType name="ArrayOfHoteles">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Hoteles" nillable="true" type="tns:Hoteles" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfHoteles" nillable="true" type="tns:ArrayOfHoteles" />
+  <xs:complexType name="Hoteles">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CadenaId" type="xs:int" />
+      <xs:element minOccurs="0" name="Cadenas" nillable="true" type="tns:Cadenas" />
+      <xs:element minOccurs="0" name="CiudadId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Ciudades" nillable="true" type="tns:Ciudades" />
+      <xs:element minOccurs="0" name="Codigo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Direccion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HotelId" type="xs:int" />
+      <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NumeroPlazas" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Servicios" nillable="true" type="tns:ArrayOfServicios" />
+      <xs:element minOccurs="0" name="Telefono" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Hoteles" nillable="true" type="tns:Hoteles" />
+  <xs:complexType name="Ciudades">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CiudadId" type="xs:int" />
+      <xs:element minOccurs="0" name="Codigo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DepartamentoId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Departamentos" nillable="true" type="tns:Departamentos" />
+      <xs:element minOccurs="0" name="Hoteles" nillable="true" type="tns:ArrayOfHoteles" />
+      <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Vuelos" nillable="true" type="tns:ArrayOfVuelos" />
+      <xs:element minOccurs="0" name="Vuelos1" nillable="true" type="tns:ArrayOfVuelos" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Ciudades" nillable="true" type="tns:Ciudades" />
+  <xs:complexType name="Departamentos">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Ciudades" nillable="true" type="tns:ArrayOfCiudades" />
+      <xs:element minOccurs="0" name="DepartamentoId" type="xs:int" />
+      <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Departamentos" nillable="true" type="tns:Departamentos" />
+  <xs:complexType name="ArrayOfCiudades">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Ciudades" nillable="true" type="tns:Ciudades" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCiudades" nillable="true" type="tns:ArrayOfCiudades" />
+  <xs:complexType name="ArrayOfVuelos">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Vuelos" nillable="true" type="tns:Vuelos" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfVuelos" nillable="true" type="tns:ArrayOfVuelos" />
+  <xs:complexType name="Vuelos">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CadenaId" type="xs:int" />
+      <xs:element minOccurs="0" name="Cadenas" nillable="true" type="tns:Cadenas" />
+      <xs:element minOccurs="0" name="CiudadIdDestino" type="xs:int" />
+      <xs:element minOccurs="0" name="CiudadIdOrigen" type="xs:int" />
+      <xs:element minOccurs="0" name="Ciudades" nillable="true" type="tns:Ciudades" />
+      <xs:element minOccurs="0" name="Ciudades1" nillable="true" type="tns:Ciudades" />
+      <xs:element minOccurs="0" name="Codigo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FechaVuelo" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="HoraVuelo" type="ser:duration" />
+      <xs:element minOccurs="0" name="Movimientos" nillable="true" type="tns:ArrayOfMovimientos" />
+      <xs:element minOccurs="0" name="NumeroPlazaEjecutiva" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="NumeroPlazaTurista" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="VueloId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Vuelos" nillable="true" type="tns:Vuelos" />
+  <xs:complexType name="ArrayOfServicios">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Servicios" nillable="true" type="tns:Servicios" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfServicios" nillable="true" type="tns:ArrayOfServicios" />
+  <xs:complexType name="Servicios">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Activo" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Codigo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Descuento" type="xs:int" />
+      <xs:element minOccurs="0" name="HotelId" type="xs:int" />
+      <xs:element minOccurs="0" name="Hoteles" nillable="true" type="tns:Hoteles" />
+      <xs:element minOccurs="0" name="Movimientos" nillable="true" type="tns:ArrayOfMovimientos" />
+      <xs:element minOccurs="0" name="Precio" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ServicioId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Servicios" nillable="true" type="tns:Servicios" />
+</xs:schema>

@@ -19,6 +19,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -39,6 +40,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -58,6 +61,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Servicios\EjemploAsmx.asmx" />
+    <Content Include="Servicios\EjemploWcf.svc" />
+    <Content Include="Servicios\EjemploWcf2.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -67,6 +72,13 @@
       <DependentUpon>EjemploAsmx.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Servicios\EjemploWcf.svc.cs">
+      <DependentUpon>EjemploWcf.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Servicios\EjemploWcf2.svc.cs">
+      <DependentUpon>EjemploWcf2.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Servicios\IEjemploWcf.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\PublishProfiles\JOhn.pubxml" />

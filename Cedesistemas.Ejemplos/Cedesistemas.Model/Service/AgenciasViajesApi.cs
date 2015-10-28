@@ -7,7 +7,7 @@ using Cedesistemas.Model.Business.Logic;
 namespace Cedesistemas.Model.Service
 {
     [DataObject(true)]
-    public class AgenciasViajesApi
+    public class AgenciasViajesApi : IAgenciasViajesApi
     {
 
         #region Clientes
