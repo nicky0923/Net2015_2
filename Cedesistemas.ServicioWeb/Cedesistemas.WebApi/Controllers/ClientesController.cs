@@ -4,15 +4,40 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using Cedesistemas.Model.Business.Entities;
+using Cedesistemas.Model.Service;
 
 namespace Cedesistemas.WebApi.Controllers
 {
     public class ClientesController : ApiController
     {
         // GET api/clientes
-        public IEnumerable<string> Get()
+        public HttpResponseMessage Get()
         {
-            return new string[] { "value1", "value2" };
+            try
+            {
+
+                var body = new AgenciasViajesApi().SelectAllClientes();
+                if (body != null)
+                {
+                    return Request.CreateResponse(HttpStatusCode.OK, body);
+                }
+                return Request.CreateResponse(HttpStatusCode.NotFound);
+
+            }
+            catch (Exception ex)
+            {
+                HttpResponseMessage response = new HttpResponseMessage(HttpStatusCode.InternalServerError)
+                {
+                    Content =
+                        new StringContent(string.Format("Error: {0} -- Error Asociado{1}", ex.Message,
+                            ex.InnerException != null ? ex.InnerException.Message : ""))
+                };
+                return response;
+            }
+
+
+           
         }
 
         // GET api/clientes/5
@@ -22,12 +47,12 @@ namespace Cedesistemas.WebApi.Controllers
         }
 
         // POST api/clientes
-        public void Post([FromBody]string value)
+        public void Post(Clientes value)
         {
         }
 
         // PUT api/clientes/5
-        public void Put(int id, [FromBody]string value)
+        public void Put(int id, Clientes value)
         {
         }
 

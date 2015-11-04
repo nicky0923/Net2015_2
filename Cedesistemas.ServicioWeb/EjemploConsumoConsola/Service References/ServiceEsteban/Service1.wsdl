@@ -1,0 +1,527 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetInfoNombrePropietarioCupon">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cuponCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInfoNombrePropietarioCuponResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetInfoNombrePropietarioCuponResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInfoCedulaPropietarioCupon">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cuponCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInfoCedulaPropietarioCuponResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetInfoCedulaPropietarioCuponResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInfoCuponActivo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cuponCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInfoCuponActivoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetInfoCuponActivoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInfoFechaCaducidadCupon">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cuponCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInfoFechaCaducidadCuponResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetInfoFechaCaducidadCuponResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInfoNroAplicadoCupon">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cuponCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInfoNroAplicadoCuponResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetInfoNroAplicadoCuponResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInfoCodPromoCupon">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cuponCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInfoCodPromoCuponResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetInfoCodPromoCuponResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInfoTipoPromoCupon">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cuponCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInfoTipoPromoCuponResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetInfoTipoPromoCuponResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTipoPromocionCamposlibres">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="codPromocion" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTipoPromocionCamposlibresResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTipoPromocionCamposlibresResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCodArticuloPromo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cuponCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCodArticuloPromoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCodArticuloPromoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUnidadesRegaloPromo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cuponCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUnidadesRegaloPromoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUnidadesRegaloPromoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDescuentoPromo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cuponCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDescuentoPromoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDescuentoPromoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDesImportePromo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cuponCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDesImportePromoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDesImportePromoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetInfoNombrePropietarioCuponSoapIn">
+    <wsdl:part name="parameters" element="tns:GetInfoNombrePropietarioCupon" />
+  </wsdl:message>
+  <wsdl:message name="GetInfoNombrePropietarioCuponSoapOut">
+    <wsdl:part name="parameters" element="tns:GetInfoNombrePropietarioCuponResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetInfoCedulaPropietarioCuponSoapIn">
+    <wsdl:part name="parameters" element="tns:GetInfoCedulaPropietarioCupon" />
+  </wsdl:message>
+  <wsdl:message name="GetInfoCedulaPropietarioCuponSoapOut">
+    <wsdl:part name="parameters" element="tns:GetInfoCedulaPropietarioCuponResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetInfoCuponActivoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetInfoCuponActivo" />
+  </wsdl:message>
+  <wsdl:message name="GetInfoCuponActivoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetInfoCuponActivoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetInfoFechaCaducidadCuponSoapIn">
+    <wsdl:part name="parameters" element="tns:GetInfoFechaCaducidadCupon" />
+  </wsdl:message>
+  <wsdl:message name="GetInfoFechaCaducidadCuponSoapOut">
+    <wsdl:part name="parameters" element="tns:GetInfoFechaCaducidadCuponResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetInfoNroAplicadoCuponSoapIn">
+    <wsdl:part name="parameters" element="tns:GetInfoNroAplicadoCupon" />
+  </wsdl:message>
+  <wsdl:message name="GetInfoNroAplicadoCuponSoapOut">
+    <wsdl:part name="parameters" element="tns:GetInfoNroAplicadoCuponResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetInfoCodPromoCuponSoapIn">
+    <wsdl:part name="parameters" element="tns:GetInfoCodPromoCupon" />
+  </wsdl:message>
+  <wsdl:message name="GetInfoCodPromoCuponSoapOut">
+    <wsdl:part name="parameters" element="tns:GetInfoCodPromoCuponResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetInfoTipoPromoCuponSoapIn">
+    <wsdl:part name="parameters" element="tns:GetInfoTipoPromoCupon" />
+  </wsdl:message>
+  <wsdl:message name="GetInfoTipoPromoCuponSoapOut">
+    <wsdl:part name="parameters" element="tns:GetInfoTipoPromoCuponResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTipoPromocionCamposlibresSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTipoPromocionCamposlibres" />
+  </wsdl:message>
+  <wsdl:message name="GetTipoPromocionCamposlibresSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTipoPromocionCamposlibresResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCodArticuloPromoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCodArticuloPromo" />
+  </wsdl:message>
+  <wsdl:message name="GetCodArticuloPromoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCodArticuloPromoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUnidadesRegaloPromoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUnidadesRegaloPromo" />
+  </wsdl:message>
+  <wsdl:message name="GetUnidadesRegaloPromoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUnidadesRegaloPromoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDescuentoPromoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDescuentoPromo" />
+  </wsdl:message>
+  <wsdl:message name="GetDescuentoPromoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDescuentoPromoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDesImportePromoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDesImportePromo" />
+  </wsdl:message>
+  <wsdl:message name="GetDesImportePromoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDesImportePromoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="Service1Soap">
+    <wsdl:operation name="GetInfoNombrePropietarioCupon">
+      <wsdl:input message="tns:GetInfoNombrePropietarioCuponSoapIn" />
+      <wsdl:output message="tns:GetInfoNombrePropietarioCuponSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInfoCedulaPropietarioCupon">
+      <wsdl:input message="tns:GetInfoCedulaPropietarioCuponSoapIn" />
+      <wsdl:output message="tns:GetInfoCedulaPropietarioCuponSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInfoCuponActivo">
+      <wsdl:input message="tns:GetInfoCuponActivoSoapIn" />
+      <wsdl:output message="tns:GetInfoCuponActivoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInfoFechaCaducidadCupon">
+      <wsdl:input message="tns:GetInfoFechaCaducidadCuponSoapIn" />
+      <wsdl:output message="tns:GetInfoFechaCaducidadCuponSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInfoNroAplicadoCupon">
+      <wsdl:input message="tns:GetInfoNroAplicadoCuponSoapIn" />
+      <wsdl:output message="tns:GetInfoNroAplicadoCuponSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInfoCodPromoCupon">
+      <wsdl:input message="tns:GetInfoCodPromoCuponSoapIn" />
+      <wsdl:output message="tns:GetInfoCodPromoCuponSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInfoTipoPromoCupon">
+      <wsdl:input message="tns:GetInfoTipoPromoCuponSoapIn" />
+      <wsdl:output message="tns:GetInfoTipoPromoCuponSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTipoPromocionCamposlibres">
+      <wsdl:input message="tns:GetTipoPromocionCamposlibresSoapIn" />
+      <wsdl:output message="tns:GetTipoPromocionCamposlibresSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCodArticuloPromo">
+      <wsdl:input message="tns:GetCodArticuloPromoSoapIn" />
+      <wsdl:output message="tns:GetCodArticuloPromoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUnidadesRegaloPromo">
+      <wsdl:input message="tns:GetUnidadesRegaloPromoSoapIn" />
+      <wsdl:output message="tns:GetUnidadesRegaloPromoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDescuentoPromo">
+      <wsdl:input message="tns:GetDescuentoPromoSoapIn" />
+      <wsdl:output message="tns:GetDescuentoPromoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDesImportePromo">
+      <wsdl:input message="tns:GetDesImportePromoSoapIn" />
+      <wsdl:output message="tns:GetDesImportePromoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="Service1Soap" type="tns:Service1Soap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetInfoNombrePropietarioCupon">
+      <soap:operation soapAction="http://tempuri.org/GetInfoNombrePropietarioCupon" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInfoCedulaPropietarioCupon">
+      <soap:operation soapAction="http://tempuri.org/GetInfoCedulaPropietarioCupon" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInfoCuponActivo">
+      <soap:operation soapAction="http://tempuri.org/GetInfoCuponActivo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInfoFechaCaducidadCupon">
+      <soap:operation soapAction="http://tempuri.org/GetInfoFechaCaducidadCupon" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInfoNroAplicadoCupon">
+      <soap:operation soapAction="http://tempuri.org/GetInfoNroAplicadoCupon" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInfoCodPromoCupon">
+      <soap:operation soapAction="http://tempuri.org/GetInfoCodPromoCupon" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInfoTipoPromoCupon">
+      <soap:operation soapAction="http://tempuri.org/GetInfoTipoPromoCupon" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTipoPromocionCamposlibres">
+      <soap:operation soapAction="http://tempuri.org/GetTipoPromocionCamposlibres" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCodArticuloPromo">
+      <soap:operation soapAction="http://tempuri.org/GetCodArticuloPromo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUnidadesRegaloPromo">
+      <soap:operation soapAction="http://tempuri.org/GetUnidadesRegaloPromo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDescuentoPromo">
+      <soap:operation soapAction="http://tempuri.org/GetDescuentoPromo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDesImportePromo">
+      <soap:operation soapAction="http://tempuri.org/GetDesImportePromo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Service1Soap12" type="tns:Service1Soap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetInfoNombrePropietarioCupon">
+      <soap12:operation soapAction="http://tempuri.org/GetInfoNombrePropietarioCupon" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInfoCedulaPropietarioCupon">
+      <soap12:operation soapAction="http://tempuri.org/GetInfoCedulaPropietarioCupon" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInfoCuponActivo">
+      <soap12:operation soapAction="http://tempuri.org/GetInfoCuponActivo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInfoFechaCaducidadCupon">
+      <soap12:operation soapAction="http://tempuri.org/GetInfoFechaCaducidadCupon" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInfoNroAplicadoCupon">
+      <soap12:operation soapAction="http://tempuri.org/GetInfoNroAplicadoCupon" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInfoCodPromoCupon">
+      <soap12:operation soapAction="http://tempuri.org/GetInfoCodPromoCupon" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInfoTipoPromoCupon">
+      <soap12:operation soapAction="http://tempuri.org/GetInfoTipoPromoCupon" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTipoPromocionCamposlibres">
+      <soap12:operation soapAction="http://tempuri.org/GetTipoPromocionCamposlibres" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCodArticuloPromo">
+      <soap12:operation soapAction="http://tempuri.org/GetCodArticuloPromo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUnidadesRegaloPromo">
+      <soap12:operation soapAction="http://tempuri.org/GetUnidadesRegaloPromo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDescuentoPromo">
+      <soap12:operation soapAction="http://tempuri.org/GetDescuentoPromo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDesImportePromo">
+      <soap12:operation soapAction="http://tempuri.org/GetDesImportePromo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service1">
+    <wsdl:port name="Service1Soap" binding="tns:Service1Soap">
+      <soap:address location="http://190.158.250.7:8095/Service1.asmx" />
+    </wsdl:port>
+    <wsdl:port name="Service1Soap12" binding="tns:Service1Soap12">
+      <soap12:address location="http://190.158.250.7:8095/Service1.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
